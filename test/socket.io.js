@@ -23,10 +23,11 @@ const helpers = require('./helpers');
 const meta = require('../src/meta');
 const events = require('../src/events');
 
-const apiChats = require('../src/api/chats.js')
+const apiChats = require('../src/api/chats');
 
 const socketAdmin = require('../src/socket.io/admin');
-const SocketModules = require('../src/socket.io/modules.js')
+const SocketModules = require('../src/socket.io/modules');
+
 describe('socket.io', () => {
     let io;
     let cid;
@@ -54,8 +55,8 @@ describe('socket.io', () => {
     });
 
 
-    describe('addUserToRoom', function() { //Some assistance provided by OpenAI's ChatGPT.
-        it('should throw an error if data is invalid', async function() {
+    describe('addUserToRoom', () => { // Some assistance provided by OpenAI's ChatGPT.
+        it('should throw an error if data is invalid', async () => {
             const socket = { uid: adminUid };
             const data = { roomId: null, username: null };
 
@@ -67,7 +68,7 @@ describe('socket.io', () => {
             );
         });
 
-        it('should add user to room', async function() {
+        it('should add user to room', async () => {
             const socket = { uid: adminUid };
             const testUsername = 'testuser';
             const testUserId = await user.create({ username: testUsername, password: 'password123' });
